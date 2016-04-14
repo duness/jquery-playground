@@ -14,7 +14,7 @@ function countdownclick(countfrom) {
         if(countdown <= countfrom) {
             $("article#countdownclick button").text(--countdown);
 
-            setTimeout(check, 100);
+            setTimeout(check, 500);
         } 
     }
     check();

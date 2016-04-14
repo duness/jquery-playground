@@ -1,19 +1,23 @@
-var globalcounter = 0;
+var countdown = 0;
+var locked = false;
 
 function countdownclick(countfrom) {
-//    var counter = countfrom;
-    if(globalcounter == 0) globalcounter = countfrom;
-
-    
-    
-    
-    while(globalcounter > 0) {
-        globalcounter--;
-        $("article#countdownclick button").text(globalcounter);
-        console.log(globalcounter);
-        setTimeout(countdownclick, 2000);
+    if(!locked) {
+        countdown = countfrom;
+        locked = true;
     }
+    
+    var check = function() {
         
+        if(countdown == 0) return;
+        
+        if(countdown <= countfrom) {
+            $("article#countdownclick button").text(--countdown);
+
+            setTimeout(check, 100);
+        } 
+    }
+    check();
     
 }
 
@@ -22,5 +26,3 @@ $(function() {
         countdownclick(10);
     });
 });
-
-

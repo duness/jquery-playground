@@ -8,21 +8,19 @@ function countdownclick(countfrom) {
     }
     
     var check = function() {
-        
         if(countdown == 0) return;
         
         if(countdown <= countfrom) {
             $("article#countdownclick button").text(--countdown);
-
-            setTimeout(check, 500);
+            setTimeout(check, 50);
         } 
     }
-    check();
     
+    check();
 }
 
 $(function() {
     $("article#countdownclick button" ).click(function() {
-        countdownclick(10);
+        countdownclick(100);
     });
 });

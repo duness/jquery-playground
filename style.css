@@ -22,3 +22,11 @@ button {
     outline:none;
     border-radius: 3px;
 }
+
+/* flashtext.js */
+
+.flash {
+    color: #fff;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}

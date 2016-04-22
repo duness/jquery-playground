@@ -19,8 +19,106 @@
         </article>
         <article id="flashtext">
             <h2>Flashing Text</h2>
-            <p>Click button to activate flashing this text.</p>
+            <p>Flash this text by clicking on the button.</p>
             <button>Start Flash</button>
         </article>
+        <article id="jumpball">
+           <!-- <h2>Jumping Ball</h2>
+            <p>Press Up-key to start the animation</p>-->
+            <div id="jumpball-field">
+<!--                <div id="ball"></div>-->
+                 <div id="ai"></div>
+            </div>
+        </article>
     </body>
+    <script>
+    $(function() {
+        
+        var ai = $('#ai');
+        
+        var pos_left, pos_right, pos_top, pos_bottom;
+        pos_left = 0;
+        pos_right = 0;
+        pos_top: 0;
+        pos_bottom = 0;
+        
+        var duration = 10000;
+        
+        var step;
+        
+    
+   
+        var direction = ['left', 'top'];
+        var x;
+        var y;
+        var randomdirection;
+        
+        setInterval(function(){
+
+            randomdirection_x = direction[Math.floor(Math.random() * direction.length)];
+            
+            step_x = 5 + Math.round(Math.random() * 10);
+            step_y = 5 + Math.round(Math.random() * 10);
+            
+            step_x = '+=' + step_x;
+            step_y = '+=' + step_y;
+            
+            if(randomdirection == 'left') { ai.animate({
+                left : step_x,
+                top : step_y}, 200);}
+            if(randomdirection == 'right') { ai.animate({
+                left : step_x,
+                top : step_y}, 200);}
+            
+            console.log(randomdirection);
+        }, 2000);
+        
+                
+        
+        // a -> 65
+        // d -> 68
+        
+        var jumpballfield = $('#jumpball-field');
+        var ball = $('#ball');
+        
+        function newposition(newposition) {
+            if(newposition > 0) { newposition = '+' + newposition }
+            
+            var sign = newposition.toString().charAt(0);
+            
+            newposition = newposition.toString().substr(1);
+         
+            return sign + '=' + (newposition - 0) + 'px';
+        }
+        
+        
+        
+        
+        
+        $(document).keydown(function(e) {  
+           if(e.which == 65) { // a
+               ball.animate({'left': newposition(-50)}, 10);
+           }
+            console.log(ball.css('left'));
+        });
+        
+        $(document).keydown(function(e) {  
+           if(e.which == 68) { // d
+               ball.animate({'left': newposition(+50)}, 10);
+           }
+        });
+        
+        
+        
+        $("article#countdownclick button" ).click(function() {
+            countdownclick(100);
+        });
+
+    });
+    </script>
 </html>
+
+
+
+
+

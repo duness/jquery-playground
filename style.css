@@ -30,3 +30,54 @@ button {
     -webkit-transition: 0.2s;
     transition: 0.2s;
 }
+
+/* jumpball */
+
+div#jumpball-field {
+    border: 1px solid #aaa;
+    background: #f8f8f8;
+    height: 200px;
+    width: 300px;
+    position: relative;
+    box-shadow: inset 0px 2px 10px rgba(0,0,0,0.2);
+}
+
+div#ball {
+    background: #d45143;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 0;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+
+div#ai{
+    background: #1a51a3;
+    height: 20px;
+    width: 20px;
+    border-radius: 20px;
+    position: absolute;
+    bottom: 0;
+    -webkit-transition: 0.2s;
+    transition: 0.2s;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
